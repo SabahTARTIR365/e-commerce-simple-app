@@ -1,5 +1,10 @@
+import 'package:badges/badges.dart';
+import 'package:firbase_app_test/customer/views/components/search_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'counter_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget
 {
@@ -7,34 +12,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(20),
-     // padding:  EdgeInsets.fromLTRB(0, 20, 0, 5),//EdgeInsets.only(top: 10),
-        child: Row(children: [
-        Container(
-        width: MediaQuery.of(context).size.width*0.6,
-          decoration: BoxDecoration(
-            color: Color(0xFF979797).withOpacity(0.1),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: TextField(
-            onChanged: (value) => print(value),
-            decoration: const InputDecoration(
-                /*contentPadding: EdgeInsets.symmetric(
-                    //horizontal: getProportionateScreenWidth(20),
-                    vertical: getProportionateScreenWidth(9)),*/
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                hintText: "Search product",
-                prefixIcon: Icon(Icons.search)),
-          ),
-        ),
-
-
-
-        ],),
-    );
+    return Row(
+      children: [
+        const SizedBox(width: 15,),
+        const SearchWidget(),
+        const SizedBox(width: 15,),
+        CounterIconButton(icon: 'assets/icons/Cart Icon.svg', numOfItem: 0,onPress: (){},),
+        const SizedBox(width: 15,),
+        CounterIconButton(icon: 'assets/icons/Bell.svg', numOfItem: 3,onPress: (){},),
+    ],);
   }
   @override
   Size get preferredSize => AppBar().preferredSize;

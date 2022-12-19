@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../admin/views/components/discount_widget.dart';
 import 'custom_app_bar.dart';
 
 class CustomerHomeWidget extends StatelessWidget
@@ -11,14 +12,15 @@ class CustomerHomeWidget extends StatelessWidget
   Widget build(BuildContext context) {
    return Container(
      width: MediaQuery.of(context).size.width,
-     color:   Colors.blue,
+     //color:   Colors.blue,
      child: SingleChildScrollView(
        child: Column(
-         mainAxisAlignment: MainAxisAlignment.end,
-         crossAxisAlignment: CrossAxisAlignment.start,
-         children: [
+         children: const [
+           SizedBox(height: 35,),
            CustomAppBar(),
-           Text("hi"),
+           SizedBox(height: 30,),
+           DiscountWidget(),
+
 
          ],
        ),),

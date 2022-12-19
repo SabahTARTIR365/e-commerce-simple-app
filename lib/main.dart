@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
 
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         navigatorKey: AppRouter.appRouter.navigatorKey,
         title: 'Flutter Demo',
         theme: ThemeData(
