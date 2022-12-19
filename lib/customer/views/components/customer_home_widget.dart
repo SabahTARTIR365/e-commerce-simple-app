@@ -122,7 +122,7 @@ class _CustomerHomeWidgetState extends State<CustomerHomeWidget> {
                                child: GridView.builder(
                                    gridDelegate:
                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                     crossAxisCount: 2,
+                                     crossAxisCount: 3,
                                      mainAxisSpacing: 10,
                                      crossAxisSpacing: 10),
                                  itemCount: provider.allCategories!.length,
@@ -134,15 +134,29 @@ class _CustomerHomeWidgetState extends State<CustomerHomeWidget> {
                                      AppRouter.appRouter.goToWidget(
                                        AllProductsScreen(provider.allCategories![index]));
                                      },
-                                   child: Container(
-                                     height: 100,
-                                     width: 100,
-                                     child: Image.network(
-                                     provider
-                                         .allCategories![index].imageUrl,
-                                     fit: BoxFit.cover,
-                                   ),
+                                   child: Column(
+                                     children: [
+                                       SizedBox(
+                                         height: 94,
+                                         width: 94,
+                                         child: ClipRRect(
+                                             borderRadius: BorderRadius.circular(10),
+                                           child: Image.network(
+                                           provider
+                                               .allCategories![index].imageUrl,
+                                           fit: BoxFit.cover,
+                                       ),
+                                         ),
                                  ),
+
+                                       SizedBox(height: 5),
+                                       Text(provider.allCategories![index].nameEn,
+                                           style: SafeGoogleFont ('Muli',
+                                             fontWeight: FontWeight.w500,
+                                             color: Color(0xff000000),),
+                                           textAlign: TextAlign.center)
+                                     ],
+                                   ),
                                );
                              }))
                    ],

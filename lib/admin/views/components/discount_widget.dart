@@ -18,7 +18,13 @@ class DiscountWidget extends StatelessWidget
       vertical: 15,
     ),
     decoration: BoxDecoration(
-      color: Color(0xFF4A3298),
+      gradient:  LinearGradient(
+        colors: [
+          Color(0xff4A3298),//.withOpacity(0.6),
+          Color(0xFF412A8D).withOpacity(0.7),
+        ],
+      ),
+
       borderRadius: BorderRadius.circular(20),
     ),
     child:  Text.rich(
