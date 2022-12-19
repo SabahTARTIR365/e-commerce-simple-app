@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:string_validator/string_validator.dart';
 import '../../app_router/app_router.dart';
 import '../../customer/views/customer_main_page.dart';
+import '../../customer/views/product_details_screen.dart';
 import '../../data_repositories/auth_helper.dart';
 import '../../data_repositories/firestore_helper.dart';
 import '../../data_repositories/storage_helper.dart';
@@ -68,7 +69,7 @@ class AuthProvider extends ChangeNotifier {
         loggedUser =
             await FirestoreHelper.firestoreHelper.getUserFromFirestore(userId);
         notifyListeners();
-        AppRouter.appRouter.goToWidgetAndReplace(CustomerMainPage());
+        AppRouter.appRouter.goToWidgetAndReplace(CustomerHomeScreen());
       }
     }
   }
@@ -99,7 +100,7 @@ class AuthProvider extends ChangeNotifier {
 
     if (userId != null) {
       getUser(userId);
-      AppRouter.appRouter.goToWidgetAndReplace(CustomerMainPage());
+      AppRouter.appRouter.goToWidgetAndReplace(CustomerHomeScreen());
     } else {
       AppRouter.appRouter.goToWidgetAndReplace(SignInScreen());
     }

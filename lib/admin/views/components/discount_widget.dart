@@ -11,8 +11,8 @@ class DiscountWidget extends StatelessWidget
   Widget build(BuildContext context) {
     return Container(
     height: 90,
-    width: MediaQuery.of(context).size.width*0.9,
-    margin: EdgeInsets.all(15),
+    width: MediaQuery.of(context).size.width*0.95,
+    margin: EdgeInsets.all(10),
     padding: EdgeInsets.symmetric(
       horizontal: 20,
       vertical: 15,

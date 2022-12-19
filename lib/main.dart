@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
 
           primarySwatch: Colors.blue,
         ),
-        home:CustomerHomeScreen(),//SplashScreen(),
+        home:SplashScreen(),//CustomerHomeScreen(),//
       ),
     );
   }
