@@ -1,7 +1,7 @@
 import 'package:firbase_app_test/app_router/app_router.dart';
 import 'package:firbase_app_test/auth/components/custom_textfield.dart';
 import 'package:firbase_app_test/auth/providers/auth_provider.dart';
-import 'package:firbase_app_test/auth/screens/profile_screen.dart';
+import 'package:firbase_app_test/auth/screens/account_screen.dart';
 import 'package:firbase_app_test/auth/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

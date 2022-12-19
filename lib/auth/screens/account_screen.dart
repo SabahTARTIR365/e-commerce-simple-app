@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 
 import 'package:firbase_app_test/auth/providers/auth_provider.dart';
 
-class ProfileScreen extends StatelessWidget {
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

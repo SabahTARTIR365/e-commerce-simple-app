@@ -1,3 +1,4 @@
+import 'package:firbase_app_test/customer/views/components/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class CustomerHomeScreen extends StatelessWidget
     CustomerHomeWidget(),
     Text('Screen2'),
     Text('Screen3'),
-    Text('Screen4'),
+    ProfilePage(),
   ];
 
 
