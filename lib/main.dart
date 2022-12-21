@@ -56,8 +56,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           // This is the theme of your application.
-
-          primarySwatch: Colors.blue,
+          //primaryColor: Colors.orangeAccent,
+          primarySwatch: Colors.orange,
         ),
         home:SplashScreen(),//CustomerHomeScreen(),//
       ),

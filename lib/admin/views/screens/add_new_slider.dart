@@ -40,7 +40,8 @@ class AddNewSliderScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  CustomTextfield(
+                  CustomTextField(
+                    svgIcon: "assets/icons/white.svg",
                     controller: provider.sliderTitleController,
                     label: 'Slider Title',
                     validation: provider.requiredValidation,
@@ -48,7 +49,8 @@ class AddNewSliderScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  CustomTextfield(
+                  CustomTextField(
+                    svgIcon: "assets/icons/white.svg",
                     controller: provider.sliderUrlController,
                     label: 'Slider Url',
                     validation: provider.requiredValidation,

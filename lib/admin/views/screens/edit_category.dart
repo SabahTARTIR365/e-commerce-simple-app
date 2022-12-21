@@ -48,7 +48,8 @@ class EditCategory extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                CustomTextfield(
+                CustomTextField(
+                  svgIcon: "assets/icons/white.svg",
                   controller: provider.catNameArController,
                   label: 'Category Arabic name',
                   validation: provider.requiredValidation,
@@ -56,7 +57,8 @@ class EditCategory extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                CustomTextfield(
+                CustomTextField(
+                  svgIcon: "assets/icons/white.svg",
                   controller: provider.catNameEnController,
                   label: 'Category English name',
                   validation: provider.requiredValidation,

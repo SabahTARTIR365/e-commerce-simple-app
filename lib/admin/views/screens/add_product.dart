@@ -46,7 +46,8 @@ class AddNewProduct extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                CustomTextfield(
+                CustomTextField(
+                  svgIcon: "assets/icons/white.svg",
                   controller: provider.productNameController,
                   label: 'Product name',
                   validation: provider.requiredValidation,
@@ -54,7 +55,8 @@ class AddNewProduct extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                CustomTextfield(
+                CustomTextField(
+                  svgIcon: "assets/icons/white.svg",
                   controller: provider.productDescriptionController,
                   label: 'Product Description',
                   validation: provider.requiredValidation,
@@ -62,7 +64,8 @@ class AddNewProduct extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                CustomTextfield(
+                CustomTextField(
+                  svgIcon: "assets/icons/white.svg",
                   controller: provider.productPriceController,
                   label: 'Product Price',
                   validation: provider.requiredValidation,

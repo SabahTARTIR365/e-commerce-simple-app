@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import 'package:firbase_app_test/auth/providers/auth_provider.dart';
+
+import '../../customer/views/components/profile_image_widget.dart';
+import '../../utils.dart';
+import '../components/custom_textfield.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -10,47 +15,46 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(actions: [
-          IconButton(
-              onPressed: () {
-                Provider.of<AuthProvider>(context, listen: false).signOut();
-              },
-              icon: Icon(Icons.logout))
-        ]),
         body: Consumer<AuthProvider>(
           builder: (context, provider, w) {
             return Container(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.white,
               child: provider.loggedUser == null
                   ? const Center(
                       child: CircularProgressIndicator(),
                     )
                   : Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        SizedBox(height: 20,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: Icon(Icons.arrow_back_sharp,color: Color(0xff757575),)),
+                            SizedBox(width: 120,),
+                            Text
+                              ( 'Profile',
+                              style: SafeGoogleFont ('Muli',
+                                fontSize: 23,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff757575),),
+                            ),
+                          ],
+                        ),
+
                         const SizedBox(
                           height: 20,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            provider.uploadNewFile();
-                          },
-                          child: Container(
-                            height: 150,
-                            width: 150,
-                            color: Colors.grey,
-                            child: provider.loggedUser?.imageUrl == null
-                                ? const Center(
-                                    child: Icon(Icons.camera),
-                                  )
-                                : Image.network(
-                                    (provider.loggedUser?.imageUrl)!,
-                                    fit: BoxFit.cover,
-                                  ),
-                          ),
-                        ),
+                        ProfileImageWidget(),
                         const SizedBox(
                           height: 20,
                         ),
+                         //
+
                         CustomProfileWidget(
                           label: "user name: ",
                           value: provider.loggedUser!.userName,
@@ -67,7 +71,9 @@ class AccountScreen extends StatelessWidget {
                     ),
             );
           },
-        ));
+        )
+
+    );
   }
 }
 
@@ -86,7 +92,7 @@ class CustomProfileWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Colors.grey.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
           Expanded(

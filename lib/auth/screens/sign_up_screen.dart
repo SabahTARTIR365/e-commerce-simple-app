@@ -5,14 +5,15 @@ import 'package:firbase_app_test/auth/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../data_repositories/constant.dart';
+import '../../utils.dart';
+import '../widgets/custom_button.dart';
+
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Consumer<AuthProvider>(builder: (context, provider, x) {
@@ -22,7 +23,38 @@ class SignUpScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    CustomTextfield(
+                    SizedBox(height: 20,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text
+                          ( 'Sign Up',
+                          style: SafeGoogleFont ('Muli',
+                            fontSize: 23,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff757575),),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 60),
+                    Text(
+                      "Register Account",
+                      textAlign: TextAlign.center,
+                      style: SafeGoogleFont ('Muli',
+                        color: Colors.black,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(style: SafeGoogleFont ('Muli',fontWeight: FontWeight.w400,
+                    ),
+                      "Complete your details or continue  \n with social media",
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height:50),
+                    CustomTextField(
+                      svgIcon:"assets/icons/User.svg" ,
                       validation: provider.requiredValidation,
                       label: 'Name',
                       controller: provider.userNameController,
@@ -30,7 +62,8 @@ class SignUpScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomTextfield(
+                    CustomTextField(
+                      svgIcon:  "assets/icons/Phone.svg",
                       validation: provider.phoneValidation,
                       label: 'Phone Number',
                       controller: provider.phoneController,
@@ -39,7 +72,8 @@ class SignUpScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomTextfield(
+                    CustomTextField(
+                      svgIcon: "assets/icons/Mail.svg",
                       validation: provider.emailValidation,
                       label: 'Email',
                       controller: provider.registerEmailController,
@@ -48,29 +82,46 @@ class SignUpScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomTextfield(
+                    CustomTextField(
+                      svgIcon: "assets/icons/Lock.svg",
                       validation: provider.passwordValidation,
                       label: 'Password',
                       controller: provider.passwordRegisterController,
                       isPassword: true,
                     ),
                     const SizedBox(
-                      height: 100,
+                      height: 30,
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          provider.SignUp();
-                        },
-                        child: Text('Sign Up')),
-                    const SizedBox(
-                      height: 10,
+
+                    CustomButton
+                      (
+                      text:'Sign Up',
+                      press:() {
+                        provider.SignUp();
+                      },
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          AppRouter.appRouter
-                              .goToWidgetAndReplace(SignInScreen());
-                        },
-                        child: Text('Go to login Page'))
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Already created account? ",
+                          style:
+                          SafeGoogleFont (
+                              'Muli',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16),
+                        ),
+                        GestureDetector(
+                          onTap: () =>  AppRouter.appRouter.goToWidgetAndReplace(SignInScreen()),
+                          child: Text(
+                            "Sign In",
+                            style:SafeGoogleFont ('Muli',fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                color: PrimaryColor),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ));

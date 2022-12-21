@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width:MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height*0.7,
+      height: MediaQuery.of(context).size.height*0.08,
       margin: EdgeInsets.all(20),
       child: TextButton(
         style: TextButton.styleFrom(

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../admin/views/screens/main_admin_screen.dart';
 import '../../../app_router/app_router.dart';
 import '../../../auth/providers/auth_provider.dart';
+import '../../../auth/screens/account_screen.dart';
 import '../../../utils.dart';
 
 class ProfilePage extends StatelessWidget
@@ -36,8 +37,7 @@ class ProfilePage extends StatelessWidget
         ProfileWidget(
           text: "My Account",
           icon: "assets/icons/User Icon.svg",
-          press: () => {},
-        ),
+          press: () {AppRouter.appRouter.goToWidget(AccountScreen());},),
         ProfileWidget(
           text: "Notifications",
           icon: "assets/icons/Bell.svg",
