@@ -56,15 +56,15 @@ class AccountScreen extends StatelessWidget {
                          //
 
                         CustomProfileWidget(
-                          label: "user name: ",
+                          label: "User name: ",
                           value: provider.loggedUser!.userName,
                         ),
                         CustomProfileWidget(
-                          label: "user email: ",
+                          label: "User email: ",
                           value: provider.loggedUser!.email,
                         ),
                         CustomProfileWidget(
-                          label: "user phone: ",
+                          label: "User phone: ",
                           value: provider.loggedUser!.phoneNumber,
                         ),
                       ],
@@ -89,22 +89,33 @@ class CustomProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      padding: EdgeInsets.all(15),
+
       decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
+        border: Border.all(
+          color: Colors.grey,
+        ),
+          color: Colors.white, borderRadius: BorderRadius.circular(30)),
+
       child: Row(
         children: [
           Expanded(
               child: Text(
             label,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: SafeGoogleFont ('Muli',
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+              color: Color(0xff757575),),
           )),
           Expanded(
               flex: 2,
               child: Text(
                 value,
-                style: TextStyle(fontSize: 20),
+                style: SafeGoogleFont ('Muli',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff757575),),
               ))
         ],
       ),
