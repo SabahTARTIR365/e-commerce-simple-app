@@ -95,7 +95,7 @@ class _CustomerHomeWidgetState extends State<CustomerHomeWidget> {
                          );
                        }),
                  ),
-                 SizedBox(height: 10,)
+                    SizedBox(height: 10,)
                ],
              ),
            Expanded(

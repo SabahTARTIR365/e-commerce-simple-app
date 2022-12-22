@@ -7,6 +7,7 @@ class Product {
   String description;
   String price;
   String imageUrl;
+  //bool isFavourite;
   Product({
     this.id,
     required this.catId,
@@ -14,6 +15,7 @@ class Product {
     required this.description,
     required this.price,
     required this.imageUrl,
+    //this.isFavourite=false,
   });
 
   Map<String, dynamic> toMap() {

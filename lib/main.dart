@@ -9,6 +9,7 @@ import 'package:string_validator/string_validator.dart';
 
 import 'admin/providers/admin_provider.dart';
 import 'admin/views/screens/display_categories.dart';
+import 'admin/views/screens/product_details_screen.dart';
 import 'app_router/app_router.dart';
 import 'auth/providers/auth_provider.dart';
 import 'auth/screens/splach_screen.dart';
