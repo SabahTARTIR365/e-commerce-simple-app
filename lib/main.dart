@@ -12,7 +12,7 @@ import 'admin/views/screens/display_categories.dart';
 import 'app_router/app_router.dart';
 import 'auth/providers/auth_provider.dart';
 import 'auth/screens/splach_screen.dart';
-import 'customer/views/product_details_screen.dart';
+import 'customer/views/customer_home_screen.dart';
 import 'data_repositories/auth_helper.dart';
 import 'map/custom_map.dart';
 //import 'firebase_options.dart';
