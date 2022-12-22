@@ -33,21 +33,21 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Main Page'),
+        title: const Text('Main Page'),
         actions: [
           IconButton(
               onPressed: () {
                 // search delegate
                 Provider.of<AuthProvider>(context, listen: false).signOut();
               },
-              icon: Icon(Icons.logout)),
+              icon: const Icon(Icons.logout)),
           Provider.of<AuthProvider>(context).loggedUser!.isAdmin
               ? IconButton(
                   onPressed: () {
                     AppRouter.appRouter.goToWidget(MainAdminScreen());
                   },
-                  icon: Icon(Icons.settings))
-              : SizedBox()
+                  icon: const Icon(Icons.settings))
+              : const SizedBox()
         ],
       ),
       body: Consumer<AdminProvider>(
@@ -56,7 +56,7 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               provider.allSliders == null
-                  ? SizedBox(
+                  ? const SizedBox(
                       height: 220,
                       child: Center(
                         child: CircularProgressIndicator(),
@@ -80,9 +80,9 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
                                   child: Container(
                                       width: MediaQuery.of(context).size.width,
                                       margin:
-                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                          const EdgeInsets.symmetric(horizontal: 5.0),
                                       decoration:
-                                          BoxDecoration(color: Colors.amber),
+                                          const BoxDecoration(color: Colors.amber),
                                       child: Image.network(
                                         i.imageUrl!,
                                         fit: BoxFit.cover,
@@ -92,7 +92,7 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
                             );
                           }).toList(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -100,7 +100,7 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
                           children: List.generate(provider.allSliders!.length,
                               (index) {
                             return Container(
-                              margin: EdgeInsets.symmetric(horizontal: 3),
+                              margin: const EdgeInsets.symmetric(horizontal: 3),
                               height: index == currentIndex ? 10 : 8,
                               width: index == currentIndex ? 10 : 8,
                               decoration: BoxDecoration(
@@ -112,33 +112,33 @@ class _CustomerMainPageState extends State<CustomerMainPage> {
                             );
                           }),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         )
                       ],
                     ),
               Expanded(
                 child: provider.allCategories == null
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'All Categories',
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Expanded(
                                 child: GridView.builder(
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
                                             mainAxisSpacing: 10,
                                             crossAxisSpacing: 10),

@@ -20,11 +20,21 @@ class AllProductsScreen extends StatelessWidget {
                 child: Center(
                 child: CircularProgressIndicator(),
               ))
-            : ListView.builder(
+            :/* ListView.builder(
                 itemCount: provider.allProducts?.length ?? 0,
                 itemBuilder: (context, index) {
                   return ProductCustomerWidget(provider.allProducts![index]);
-                });
+                })*/
+        GridView.builder(
+            gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5),
+            itemCount:provider.allProducts?.length ?? 0,
+            itemBuilder: (context, index) {
+              return  ProductCustomerWidget(provider.allProducts![index]);
+            });
       }),
     );
   }

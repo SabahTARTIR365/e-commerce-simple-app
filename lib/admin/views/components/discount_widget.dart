@@ -13,11 +13,11 @@ class DiscountWidget extends StatelessWidget
     height: 90,
     width: MediaQuery.of(context).size.width*0.95,
     margin: EdgeInsets.all(10),
-    padding: EdgeInsets.symmetric(
-      horizontal: 20,
-      vertical: 15,
-    ),
-    decoration: BoxDecoration(
+    padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 15,
+              ),
+      decoration: BoxDecoration(
       gradient:  LinearGradient(
         colors: [
           Color(0xff4A3298),//.withOpacity(0.6),
