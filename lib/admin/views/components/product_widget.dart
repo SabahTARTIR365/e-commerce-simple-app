@@ -2,7 +2,9 @@ import 'dart:developer';
 
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../models/product.dart';
+import '../../providers/admin_provider.dart';
 
 class ProductWidget extends StatelessWidget {
   Product product;
@@ -41,7 +43,11 @@ class ProductWidget extends StatelessWidget {
                           radius: 20,
                           backgroundColor: Colors.white,
                           child: IconButton(
-                              onPressed: () {}, icon: Icon(Icons.delete)),
+                              onPressed: () {
+                                Provider.of<AdminProvider>(context,
+                                    listen: false).deleteProduct(product);
+
+                              }, icon: Icon(Icons.delete)),
                         ),
                         SizedBox(
                           height: 10,
@@ -50,7 +56,11 @@ class ProductWidget extends StatelessWidget {
                           radius: 20,
                           backgroundColor: Colors.white,
                           child: IconButton(
-                              onPressed: () {}, icon: Icon(Icons.edit)),
+                              onPressed: () {
+
+
+
+                              }, icon: Icon(Icons.edit)),
                         ),
                       ],
                     ))

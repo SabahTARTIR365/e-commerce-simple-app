@@ -69,8 +69,6 @@ class FirestoreHelper {
     }
   }
 
-
-
   Future<bool> deleteCategoey(String catId) async {
     try {
       await firestore.collection('categories').doc(catId).delete();
@@ -80,9 +78,21 @@ class FirestoreHelper {
       return false;
     }
   }
+  Future<bool> deleteProduct(Product product) async {
+    try {
+      await firestore.collection('categories')
+                         .doc(product.catId)
+                         .collection('products')
+                         .doc(product.id).delete();
 
 
-  //
+      return true;
+    } on Exception catch (e) {
+      log(e.toString());
+      return false;
+    }
+  }
+
 
   Future<List<Product>?> getCatrsProducts()async {
     try {
@@ -155,7 +165,7 @@ class FirestoreHelper {
     }).toList();
   }
 
-  Future<bool?> deleteProduct(Product product) async {}
+
   Future<bool?> updateProduct(Product product) async {}
   Future<String?> addNewSlider(Slider slider) async {
     try {

@@ -124,6 +124,19 @@ class AdminProvider extends ChangeNotifier {
     }
     AppRouter.appRouter.hideDialoug();
   }
+  deleteProduct(Product product) async {
+    AppRouter.appRouter.showLoadingDialoug();
+    bool deleteSuccess =
+    await FirestoreHelper.firestoreHelper.deleteProduct(product);
+    if (deleteSuccess) {
+      allProducts!.remove(product);
+      notifyListeners();
+    }
+    AppRouter.appRouter.hideDialoug();
+  }
+  
+  
+  
 
   deleteProductFromCart(Product product) async {
     AppRouter.appRouter.showLoadingDialoug();
@@ -135,11 +148,6 @@ class AdminProvider extends ChangeNotifier {
     }
     AppRouter.appRouter.hideDialoug();
   }
-
-
-
-
-
 
 
   goToEditCategoryPage(Category category) {
