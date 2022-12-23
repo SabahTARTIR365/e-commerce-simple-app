@@ -9,7 +9,7 @@ import '../../../utils.dart';
 
 class ProductCustomerWidget extends StatelessWidget {
   Product product;
-  ProductCustomerWidget(this.product);
+  ProductCustomerWidget(this.product, {super.key});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -78,72 +78,5 @@ class ProductCustomerWidget extends StatelessWidget {
         ),
       ),
     );
-
-
-
-    /*Container(
-      margin: const EdgeInsets.all(25),
-      child: Column(
-        children: [
-        Expanded(flex: 2,
-          child: ClipRRect(
-            borderRadius:  BorderRadius.circular(10),
-                child: Image.network(
-                  product.imageUrl,
-                  fit: BoxFit.cover,
-                )),
-        ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(product.name),
-          Text(product.price)
-        ],
-      ),
-    );*/
-
-     /* Container(
-       //height: 400,
-        margin: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Colors.black, width: 2)),
-        child: Column(
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(15),bottom: Radius.circular(15)),
-                child: SizedBox(
-                    width: double.infinity,
-                  height: 100,
-                    child: Image.network(
-                      product.imageUrl,
-                      fit: BoxFit.cover,
-                    )),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                   Text(product.name,
-                        style: SafeGoogleFont (
-                          'Muli',
-                          fontSize:18,
-                          fontWeight: FontWeight.w400,)),
-                    Text(product.price,
-                      style: SafeGoogleFont (
-                        'Muli',
-                      fontSize:18,
-                      fontWeight: FontWeight.w600,
-                      color: PrimaryColor,
-                    ),),
-                  ]),
-            ),
-          ],
-        ),
-      );*/
   }
 }

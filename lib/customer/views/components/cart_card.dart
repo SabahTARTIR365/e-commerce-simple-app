@@ -14,25 +14,13 @@ class CartCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-
-       /* SizedBox(
-          width: 80,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              product.imageUrl,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),*/
         Container(
           color: Color(0xFFF5F6F9),
           child: SizedBox(
             width: 88,
             height: 100,
             child: ClipRRect(
-           //  padding: EdgeInsets.all(10),
-               // color: Color(0xFFF5F6F9),
+
                 borderRadius: BorderRadius.circular(15),
 
               child:  Image.network(product.imageUrl,fit: BoxFit.cover,),
