@@ -39,7 +39,7 @@ class CartCard extends StatelessWidget {
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "${product.price}",
+                text: "\$ ${product.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: PrimaryColor),
               ),

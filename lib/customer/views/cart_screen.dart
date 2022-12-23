@@ -24,28 +24,17 @@ class CartScreen extends StatelessWidget {
         leading: IconButton(
           onPressed: () {  AppRouter.appRouter.goToWidgetAndReplace(CustomerHomeScreen()); },
           icon: Icon(Icons.arrow_back_outlined),),
-        title: Column(
-          children: [
-              Text(
-              "Your Cart",
-              style: SafeGoogleFont ('Muli',
-                fontSize: 23,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,)
-              ),
-
-           /* Text(
-              "${demoCarts.length} items",
-              style: Theme.of(context).textTheme.caption,
-            ),*/
-          ],
+        title: Text(
+        "Your Cart",
+        style: SafeGoogleFont ('Muli',
+          fontSize: 23,
+          fontWeight: FontWeight.w500,
+          color: Colors.black,)
         ),
       ),
       body: Consumer<AdminProvider>(
          builder: (context, provider, u) {
            provider.getCart();
-           print('insid cart button value of cart =');
-           print(provider.cart?.length.toString());
           return provider.cart == null
         ? const Center(
            child: CircularProgressIndicator(),)
@@ -85,16 +74,10 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           );
-
-
-
           },
           ),
 
 
-
-    /*
-     */
       bottomNavigationBar: const CheckoutWidget(),
     );
   }

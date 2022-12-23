@@ -65,7 +65,7 @@ class ProductWidget extends StatelessWidget {
                       'Product Name' + ': ' + product.name,
                     ),
                     Text(
-                      'Product Price' + ': ' + product.price,
+                      'Product Price' + ': \$' + product.price,
                     ),
                   ]),
             ),

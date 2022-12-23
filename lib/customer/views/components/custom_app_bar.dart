@@ -22,15 +22,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget
         const SearchWidget(),
         const SizedBox(width: 15,),
         CounterIconButton(icon: 'assets/icons/Cart Icon.svg',
-          numOfItem:0,
-          /*Provider.of<AdminProvider>(context, listen: false).cart!.length==null
-          ?
-          0:
-          Provider.of<AdminProvider>(context, listen: false).cart!.length,*/
+          numOfItem:
+          Provider.of<AdminProvider>(context, listen: false).cart!.length ?? 0,
           onPress: (){ AppRouter.appRouter.goToWidgetAndReplace(CartScreen());
           },),
         const SizedBox(width: 15,),
-        CounterIconButton(icon: 'assets/icons/Bell.svg', numOfItem: 3,onPress: (){},),
+        CounterIconButton(icon: 'assets/icons/Bell.svg', numOfItem: 0,onPress: (){},),
     ],);
   }
   @override

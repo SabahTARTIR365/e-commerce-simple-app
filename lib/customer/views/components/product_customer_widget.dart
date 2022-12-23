@@ -44,7 +44,7 @@ class ProductCustomerWidget extends StatelessWidget {
             Expanded(
               child: Row(
                 children: [
-                  Text(product.price,
+                  Text('\$ ${product.price}',
                       style: SafeGoogleFont ('Muli',
                         fontWeight: FontWeight.w700,
                         color: PrimaryColor,),

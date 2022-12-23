@@ -79,7 +79,7 @@ class ProductDetailsScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              product.price,
+                              '\$${product.price}',
                               style: SafeGoogleFont ('Muli',
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,

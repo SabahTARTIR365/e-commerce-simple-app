@@ -92,12 +92,22 @@ class AdminProvider extends ChangeNotifier {
   List<Product>? allProducts;
   List<Product>? cart;
   List<Slider>? allSliders;
+  double cost =0;
 
   getCart()async{
     cart = await FirestoreHelper.firestoreHelper.getCatrsProducts();
     notifyListeners();
   }
+   double getTotalCash()
+   {
+     cost=0;
+     cart?.forEach((e) {
+       print(e.price);
+       cost += double.parse(e.price);});
+     print(cost);
+     return cost;
 
+   }
   getAllCategories() async {
     allCategories = await FirestoreHelper.firestoreHelper.getAllCategories();
     notifyListeners();

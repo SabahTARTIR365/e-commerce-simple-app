@@ -40,6 +40,7 @@ class _CustomerHomeWidgetState extends State<CustomerHomeWidget> {
   Widget build(BuildContext context) {
    return Consumer<AdminProvider>(
        builder: (context, provider, index) {
+         provider.getCart();
          return Column(
            crossAxisAlignment: CrossAxisAlignment.start,
            children: [
