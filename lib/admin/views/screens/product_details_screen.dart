@@ -1,8 +1,10 @@
 import 'package:firbase_app_test/admin/models/product.dart';
 import 'package:firbase_app_test/data_repositories/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../utils.dart';
+import '../../providers/admin_provider.dart';
 
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -115,7 +117,9 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: Consumer<AdminProvider>(
+      builder: (context, provider, u) {
+      return Container(
         height: 70,
         color: Colors.white,
         padding: EdgeInsets.all(10),
@@ -140,7 +144,7 @@ class ProductDetailsScreen extends StatelessWidget {
             Expanded(
               child: InkWell(
                 onTap: () {
-
+                provider.addProductToCart(product);
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -162,7 +166,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      );}),
     );
   }
 }

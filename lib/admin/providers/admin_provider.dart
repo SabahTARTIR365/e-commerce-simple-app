@@ -6,6 +6,7 @@ import 'package:firbase_app_test/admin/models/product.dart';
 import 'package:firbase_app_test/admin/models/slider.dart';
 import 'package:firbase_app_test/admin/views/screens/add_new_slider.dart';
 import 'package:firbase_app_test/admin/views/screens/edit_category.dart';
+import '../models/cart.dart';
 import '/app_router/app_router.dart';
 import '/data_repositories/firestore_helper.dart';
 import '/data_repositories/storage_helper.dart';
@@ -36,6 +37,21 @@ class AdminProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  addProductToCart(Product product) async{
+    //Cart cart=Cart(product: product);
+    String? id =await FirestoreHelper.firestoreHelper.addProductToCart(product);
+    if (id != null) {
+      product.id = id;
+      cart?.add(product);
+      AppRouter.appRouter
+          .showCustomDialoug('Success', 'Your product added to cart');
+      log(product.name);
+      notifyListeners();
+    }
+
+  }
+
 
   addNewCategory() async {
     if (imageFile != null) {
@@ -74,7 +90,14 @@ class AdminProvider extends ChangeNotifier {
   // get cateogies
   List<Category>? allCategories;
   List<Product>? allProducts;
+  List<Product>? cart;
   List<Slider>? allSliders;
+
+  getCart()async{
+    cart = await FirestoreHelper.firestoreHelper.getCatrsProducts();
+    notifyListeners();
+  }
+
   getAllCategories() async {
     allCategories = await FirestoreHelper.firestoreHelper.getAllCategories();
     notifyListeners();
@@ -91,6 +114,23 @@ class AdminProvider extends ChangeNotifier {
     }
     AppRouter.appRouter.hideDialoug();
   }
+
+  deleteProductFromCart(Product product) async {
+    AppRouter.appRouter.showLoadingDialoug();
+    bool deleteSuccess =
+    await FirestoreHelper.firestoreHelper.deleteProductFromCart(product.id!);
+    if (deleteSuccess) {
+      cart!.remove(product);
+      notifyListeners();
+    }
+    AppRouter.appRouter.hideDialoug();
+  }
+
+
+
+
+
+
 
   goToEditCategoryPage(Category category) {
     catNameArController.text = category.nameAr;

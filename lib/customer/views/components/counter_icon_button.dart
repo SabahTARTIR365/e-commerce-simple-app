@@ -21,6 +21,7 @@ class CounterIconButton extends StatelessWidget {
           height: MediaQuery.of(context).size.width * 0.12,
           width: MediaQuery.of(context).size.width * 0.12,
           child: FloatingActionButton(
+              heroTag: null,
               backgroundColor:Color(0xFFF1F1F3),
               onPressed: onPress,
               child: SvgPicture.asset(icon))),

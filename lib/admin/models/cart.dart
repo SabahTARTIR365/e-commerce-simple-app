@@ -1,4 +1,4 @@
-import 'package:firbase_app_test/admin/models/Product.dart';
+import 'package:firbase_app_test/admin/models/product.dart';
 
 class Cart {
   final Product product;

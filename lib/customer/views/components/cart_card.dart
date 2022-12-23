@@ -1,30 +1,41 @@
+import 'package:firbase_app_test/admin/models/product.dart';
 import 'package:flutter/material.dart';
-import '../../../admin/models/cart.dart';
 import '../../../data_repositories/constant.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({
     Key? key,
-    required this.cart,
+    required this.product,
   }) : super(key: key);
 
-  final Cart cart;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: 88,
-          child: AspectRatio(
-            aspectRatio: 0.88,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Color(0xFFF5F6F9),
+
+       /* SizedBox(
+          width: 80,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.network(
+              product.imageUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),*/
+        Container(
+          color: Color(0xFFF5F6F9),
+          child: SizedBox(
+            width: 88,
+            height: 100,
+            child: ClipRRect(
+           //  padding: EdgeInsets.all(10),
+               // color: Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
-              ),
-              child:  Image.network(cart.product.imageUrl),
+
+              child:  Image.network(product.imageUrl,fit: BoxFit.cover,),
             ),
           ),
         ),
@@ -33,14 +44,14 @@ class CartCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              cart.product.name,
+              product.name,
               style: TextStyle(color: Colors.black, fontSize: 16),
               maxLines: 2,
             ),
             SizedBox(height: 10),
             Text.rich(
               TextSpan(
-                text: "\$${cart.product.price}",
+                text: "${product.price}",
                 style: TextStyle(
                     fontWeight: FontWeight.w600, color: PrimaryColor),
               ),

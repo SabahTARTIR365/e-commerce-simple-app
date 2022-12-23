@@ -42,6 +42,35 @@ class FirestoreHelper {
     }
   }
 
+
+
+
+
+
+  Future<String?> addProductToCart(Product product) async {
+    try {
+      DocumentReference<Map<String, dynamic>> productDocument =
+      await firestore.collection('cart').add(product.toMap());
+      return productDocument.id;
+     } on Exception catch (e) {
+      log(e.toString());
+    }
+
+  }
+
+
+  Future<bool> deleteProductFromCart(String productId) async {
+    try {
+      await firestore.collection('cart').doc(productId).delete();
+      return true;
+    } on Exception catch (e) {
+      log(e.toString());
+      return false;
+    }
+  }
+
+
+
   Future<bool> deleteCategoey(String catId) async {
     try {
       await firestore.collection('categories').doc(catId).delete();
@@ -49,6 +78,24 @@ class FirestoreHelper {
     } on Exception catch (e) {
       log(e.toString());
       return false;
+    }
+  }
+
+
+  //
+
+  Future<List<Product>?> getCatrsProducts()async {
+    try {
+      QuerySnapshot<Map<String, dynamic>> cartSnapshot =
+      await firestore.collection('cart').get();
+      List<Product> products = cartSnapshot.docs.map((doc) {
+        Product product = Product.fromMap(doc.data());
+        product.id = doc.id;
+        return product;
+      }).toList();
+      return products;
+    } on Exception catch (e) {
+      log(e.toString());
     }
   }
 
