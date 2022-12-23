@@ -7,6 +7,7 @@ import 'package:firbase_app_test/admin/models/slider.dart';
 import 'package:firbase_app_test/admin/views/screens/add_new_slider.dart';
 import 'package:firbase_app_test/admin/views/screens/edit_category.dart';
 import '../models/cart.dart';
+import '../views/screens/edit_product_screen.dart';
 import '/app_router/app_router.dart';
 import '/data_repositories/firestore_helper.dart';
 import '/data_repositories/storage_helper.dart';
@@ -156,6 +157,76 @@ class AdminProvider extends ChangeNotifier {
     AppRouter.appRouter.goToWidget(EditCategory(category));
   }
 
+  goToEditProductPage(Product product){
+    productNameController.text=product.name;
+    productDescriptionController.text=product.description;
+    productPriceController.text=product.price;
+    AppRouter.appRouter.goToWidget(EditProductScreen(product));
+
+  }
+
+  updateProduct(Product product)async
+  {
+    AppRouter.appRouter.showLoadingDialoug();
+    if (imageFile != null) {
+      String imageUrl = await StorageHelper.storageHelper
+          .uploadNewImage("products_images", imageFile!);
+      product.imageUrl = imageUrl;
+    }
+    Product newProduct  = Product(
+        id: product.id,
+        imageUrl: product.imageUrl,
+        name: productNameController.text.isEmpty
+            ? product.name
+            : productNameController.text,
+        catId: product.catId,
+        description: productDescriptionController.text.isEmpty
+                   ? product.description
+                   : productDescriptionController.text,
+
+        price: productPriceController.text.isEmpty
+             ? product.price
+             : productPriceController.text,
+    );
+
+    bool? isUpdated =
+    await FirestoreHelper.firestoreHelper.updateProduct(newProduct);
+         print("reach here");
+    if (isUpdated != null && isUpdated) {
+      int index = allProducts!.indexOf(product);
+      allProducts![index] = newProduct;
+      //for cart
+      getCart();
+      try {
+        if(cart!.contains(product))
+        {
+          int index2= cart!.indexOf(product);
+        cart![index2] = newProduct;}
+      } on Exception catch (e) {
+        log(e.toString());
+      }
+
+      imageFile = null;
+      productNameController.clear();
+      productDescriptionController.clear();
+      productPriceController.clear();
+      notifyListeners();
+      AppRouter.appRouter.hideDialoug();
+      AppRouter.appRouter.hideDialoug();
+    }
+
+
+
+
+  }
+
+
+
+
+
+
+
+
   updateCategory(Category category) async {
     AppRouter.appRouter.showLoadingDialoug();
     if (imageFile != null) {
@@ -274,8 +345,4 @@ class AdminProvider extends ChangeNotifier {
           .showCustomDialoug('Error', 'You have to pick image first');
     }
   }
-  // update category
-//   updateCategory()async{
-//     FirestoreHelper.firestoreHelper.updateCategory(category)
-//   }
 }

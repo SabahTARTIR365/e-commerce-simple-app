@@ -137,6 +137,25 @@ class FirestoreHelper {
     }
   }
 
+
+  Future<bool?> updateProduct(Product product) async {
+    try {
+
+      await firestore.collection('categories')
+          .doc(product.catId)
+          .collection('products')
+          .doc(product.id).update(product.toMap());
+      return true;
+    } on Exception catch (e) {
+      log(e.toString());
+      return false;
+    }
+
+  }
+
+
+
+
   /// products functions
   Future<String?> addNewProduct(Product product) async {
     try {
@@ -166,7 +185,6 @@ class FirestoreHelper {
   }
 
 
-  Future<bool?> updateProduct(Product product) async {}
   Future<String?> addNewSlider(Slider slider) async {
     try {
       DocumentReference<Map<String, dynamic>> documentReference =

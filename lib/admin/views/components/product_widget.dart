@@ -57,7 +57,9 @@ class ProductWidget extends StatelessWidget {
                           backgroundColor: Colors.white,
                           child: IconButton(
                               onPressed: () {
-
+                                Provider.of<AdminProvider>(context,
+                                    listen: false)
+                                    .goToEditProductPage(product);
 
 
                               }, icon: Icon(Icons.edit)),
