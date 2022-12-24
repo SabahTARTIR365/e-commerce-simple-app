@@ -52,83 +52,26 @@ class MyApp extends StatelessWidget {
         ),
 
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        navigatorKey: AppRouter.appRouter.navigatorKey,
-        title: 'E-commerce App',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //primaryColor: Colors.orangeAccent,
-          primarySwatch: Colors.orange,
-        ),
-        home:SplashScreen(),//CustomerHomeScreen(),//
-      ),
+      child: AppInit()
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  List<TextEditingController> controllers = [TextEditingController()];
-  TextEditingController emailCOntroller = TextEditingController();
-  TextEditingController passwordCOntroller = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class AppInit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(),
-      body: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            TextFormField(
-              validator: (v) {
-                if (v == null || v.isEmpty) {
-                  return "Required field";
-                } else if (!(isEmail(v))) {
-                  return "Incorrect email syntax";
-                }
-              },
-              controller: emailCOntroller,
-              decoration: const InputDecoration(hintText: 'Email'),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextFormField(
-              obscureText: true,
-              validator: (v) {
-                if (v == null || v.isEmpty) {
-                  return "Required field";
-                } else if (v.length <= 6) {
-                  return 'Error, the password must be larger than 6 letters';
-                }
-              },
-              controller: passwordCOntroller,
-              decoration: const InputDecoration(hintText: 'Password'),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  bool isValid = formKey.currentState!.validate();
-                  if (isValid) {
-                    AuthHelper.authHelper
-                        .signUp(emailCOntroller.text, passwordCOntroller.text);
-                  }
-                },
-                child: Text('Add New Auther')),
-          ],
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: AppRouter.appRouter.navigatorKey,
+      title: 'E-commerce App',
+      theme: Provider.of<AdminProvider>(context).isDarkMode
+          ? ThemeData.dark()
+          : ThemeData.light(),
+
+
+      home:SplashScreen(),//CustomerHomeScreen(),//
     );
   }
 }
