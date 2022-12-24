@@ -55,8 +55,8 @@ class ProfilePage extends StatelessWidget
           ?"Set light mode"
           :"Set dark mode",
           icon: Provider.of<AdminProvider>(context).isDarkMode
-              ? "assets/icons/darkmode.svg"
-               :"assets/icons/sun.svg",
+              ? "assets/icons/sun.svg"
+               :"assets/icons/darkmode.svg",
           press: () {Provider.of<AdminProvider>(context, listen: false).changeIsDarkMode();},
         ),
         ProfileWidget(
