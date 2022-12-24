@@ -10,6 +10,7 @@ import '../../app_router/app_router.dart';
 import '../../auth/components/custom_textfield.dart';
 import '../../auth/widgets/custom_button.dart';
 import '../../utils.dart';
+import 'order_success_screen.dart';
 
 class ConfirmOrderScreen extends StatelessWidget
 {
@@ -92,7 +93,7 @@ class ConfirmOrderScreen extends StatelessWidget
               child: CustomButton(
                 text: "Confirm",
                 press: () {
-                  AppRouter.appRouter.showCustomDialoug("Success", "Your order is successfully done");
+                  AppRouter.appRouter.goToWidgetAndReplace(OrderSuccessScreen());
                 },
               ),
             ),
