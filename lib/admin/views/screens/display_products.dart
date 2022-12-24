@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_router/app_router.dart';
+import '../../../data_repositories/constant.dart';
 import '../../../utils.dart';
 import '../../providers/admin_provider.dart';
 import '../components/product_widget.dart';
@@ -16,7 +17,9 @@ class AllProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+
       appBar: AppBar(
+        foregroundColor:Colors.grey,
         actions: [
           IconButton(
               onPressed: () {

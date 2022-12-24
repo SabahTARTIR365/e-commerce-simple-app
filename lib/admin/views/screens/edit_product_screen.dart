@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../auth/components/custom_textfield.dart';
+import '../../../data_repositories/constant.dart';
 import '../../../utils.dart';
 import '../../providers/admin_provider.dart';
 
@@ -15,6 +16,7 @@ class EditProductScreen extends StatelessWidget
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.grey,
         backgroundColor:  Colors.white.withOpacity(0.2),
         elevation: 0,
         title :Text(

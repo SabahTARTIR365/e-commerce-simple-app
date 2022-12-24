@@ -19,6 +19,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.grey,
         backgroundColor:  Colors.white.withOpacity(0.2),
         elevation: 0,
         leading: IconButton(
@@ -29,7 +30,7 @@ class CartScreen extends StatelessWidget {
         style: SafeGoogleFont ('Muli',
           fontSize: 23,
           fontWeight: FontWeight.w500,
-          color: Colors.black,)
+          color: Colors.grey,)
         ),
       ),
       body: Consumer<AdminProvider>(
