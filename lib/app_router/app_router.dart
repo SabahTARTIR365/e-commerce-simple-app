@@ -9,6 +9,8 @@ class AppRouter {
         context: navigatorKey.currentContext!,
         builder: (context) {
           return AlertDialog(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(32.0))),
             title: Text(title),
             content: Text(content),
             actions: [
