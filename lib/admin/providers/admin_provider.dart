@@ -361,7 +361,12 @@ class AdminProvider extends ChangeNotifier {
     markers.add(Marker(markerId: MarkerId('Jersusalem'),position: value));
     notifyListeners();
   }
-
+//--for dark mode
+  bool isDarkMode = false;
+  changeIsDarkMode() {
+    isDarkMode = !isDarkMode;
+    notifyListeners();
+  }
 
 
 }
