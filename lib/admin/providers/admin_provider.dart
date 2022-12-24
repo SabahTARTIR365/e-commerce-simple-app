@@ -6,6 +6,7 @@ import 'package:firbase_app_test/admin/models/product.dart';
 import 'package:firbase_app_test/admin/models/slider.dart';
 import 'package:firbase_app_test/admin/views/screens/add_new_slider.dart';
 import 'package:firbase_app_test/admin/views/screens/edit_category.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../models/cart.dart';
 import '../views/screens/edit_product_screen.dart';
 import '/app_router/app_router.dart';
@@ -18,6 +19,7 @@ class AdminProvider extends ChangeNotifier {
   AdminProvider() {
     getAllCategories();
     getAllSliders();
+    getCart();
   }
   String? requiredValidation(String? content) {
     if (content == null || content.isEmpty) {
@@ -345,4 +347,21 @@ class AdminProvider extends ChangeNotifier {
           .showCustomDialoug('Error', 'You have to pick image first');
     }
   }
+  //--------for map
+
+  late GoogleMapController mapController;
+  Set <Marker> markers={};
+  LatLng center = const LatLng(31.768319, 35.213710);
+  TextEditingController addressController = TextEditingController();
+  void onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+  addMarker(LatLng value)
+  {
+    markers.add(Marker(markerId: MarkerId('Jersusalem'),position: value));
+    notifyListeners();
+  }
+
+
+
 }
