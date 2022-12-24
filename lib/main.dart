@@ -52,13 +52,15 @@ class MyApp extends StatelessWidget {
         ),
 
       ],
-      child: AppInit()
+      child: AppInitial()
     );
   }
 }
 
 
-class AppInit extends StatelessWidget {
+class AppInitial extends StatelessWidget {
+  const AppInitial({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
