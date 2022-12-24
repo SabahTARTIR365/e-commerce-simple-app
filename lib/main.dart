@@ -13,6 +13,7 @@ import 'admin/views/screens/product_details_screen.dart';
 import 'app_router/app_router.dart';
 import 'auth/providers/auth_provider.dart';
 import 'auth/screens/splach_screen.dart';
+import 'customer/views/confirm_order_screen.dart';
 import 'customer/views/customer_home_screen.dart';
 import 'data_repositories/auth_helper.dart';
 import 'map/custom_map.dart';
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         navigatorKey: AppRouter.appRouter.navigatorKey,
-        title: 'Flutter Demo',
+        title: 'E-commerce App',
         theme: ThemeData(
           // This is the theme of your application.
           //primaryColor: Colors.orangeAccent,
