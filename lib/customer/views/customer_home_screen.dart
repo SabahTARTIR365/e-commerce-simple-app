@@ -8,6 +8,7 @@ import '../providers/customer_provider.dart';
 import 'components/custom_app_bar.dart';
 import 'components/custom_bottom_nav_bar.dart';
 import 'components/customer_home_widget.dart';
+import 'order_timeline.dart';
 /*class ProductDetailsScreen extends StatelessWidget
 {
 */
@@ -34,7 +35,8 @@ class CustomerHomeScreen extends StatelessWidget
   final _widgetBottomNavBarOptions = [
     CustomerHomeWidget(),
     Text('Screen2'),
-    Text('Screen3'),
+    OrderTimeLine( title: 'time line',),
+    //Text('Screen3'),
     ProfilePage(),
   ];
 
