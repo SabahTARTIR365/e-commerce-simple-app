@@ -1,3 +1,4 @@
+import 'package:firbase_app_test/admin/providers/admin_provider.dart';
 import 'package:firbase_app_test/customer/views/components/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -50,9 +51,13 @@ class ProfilePage extends StatelessWidget
           press: () {AppRouter.appRouter.goToWidget(MainAdminScreen());},)
         : SizedBox(),
         ProfileWidget(
-          text: "Help Center",
-          icon: "assets/icons/Question mark.svg",
-          press: () {},
+          text: Provider.of<AdminProvider>(context).isDarkMode
+          ?"Set light mode"
+          :"Set dark mode",
+          icon: Provider.of<AdminProvider>(context).isDarkMode
+              ? "assets/icons/darkmode.svg"
+               :"assets/icons/sun.svg",
+          press: () {Provider.of<AdminProvider>(context, listen: false).changeIsDarkMode();},
         ),
         ProfileWidget(
           text: "Log Out",
