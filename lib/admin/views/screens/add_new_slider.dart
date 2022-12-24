@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../auth/components/custom_textfield.dart';
+import '../../../utils.dart';
 import '../../providers/admin_provider.dart';
 
 class AddNewSliderScreen extends StatelessWidget {
@@ -11,8 +12,19 @@ class AddNewSliderScreen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add New Slider'),
+        backgroundColor:  Colors.white.withOpacity(0.2),
+        elevation: 0,
+        title :Text(
+            "Add New Slider",
+            style: SafeGoogleFont ('Muli',
+              fontSize: 23,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey,)
+        ),
       ),
+
+
+
       body: Consumer<AdminProvider>(builder: (context, provider, w) {
         return Column(
           children: [

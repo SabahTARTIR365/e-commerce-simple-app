@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app_router/app_router.dart';
+import '../../../utils.dart';
 import '../../providers/admin_provider.dart';
 import '../components/Slider_widget.dart';
 
@@ -13,7 +14,13 @@ class AllSliderScreen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Sliders'),
+        backgroundColor:  Colors.white.withOpacity(0.2),
+        elevation: 0,
+        title: Text('All Sliders',
+            style: SafeGoogleFont ('Muli',
+          fontSize: 23,
+          fontWeight: FontWeight.w500,
+          color: Colors.grey,)),
         actions: [
           IconButton(
               onPressed: () {
@@ -22,6 +29,7 @@ class AllSliderScreen extends StatelessWidget {
               icon: Icon(Icons.add))
         ],
       ),
+
       body: Consumer<AdminProvider>(
         builder: (context, provider, u) {
           return provider.allSliders == null

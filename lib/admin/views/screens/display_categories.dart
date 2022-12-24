@@ -5,21 +5,36 @@ import 'package:firbase_app_test/app_router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils.dart';
+
 class AllCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
+          backgroundColor:  Colors.white.withOpacity(0.2),
+          elevation: 0,
+          title: Text('All Categories',
+              style: SafeGoogleFont ('Muli',
+                fontSize: 23,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey,)),
+         actions: [
+           IconButton(
               onPressed: () {
                 AppRouter.appRouter.goToWidget(AddNewCategory());
               },
               icon: Icon(Icons.add))
         ],
-        title: Text('All Categories'),
+
       ),
+
+
+
+
+
+
       body: Consumer<AdminProvider>(builder: (context, provider, w) {
         return provider.allCategories == null
             ? Center(

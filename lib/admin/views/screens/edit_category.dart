@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../auth/components/custom_textfield.dart';
+import '../../../utils.dart';
 import '../../models/category.dart';
 import '../../providers/admin_provider.dart';
 
@@ -14,8 +15,18 @@ class EditCategory extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("New Category"),
+        backgroundColor:  Colors.white.withOpacity(0.2),
+        elevation: 0,
+        title :Text(
+            "Update Category",
+            style: SafeGoogleFont ('Muli',
+              fontSize: 23,
+              fontWeight: FontWeight.w500,
+              color: Colors.grey,)
+        ),
       ),
+
+
       body: Consumer<AdminProvider>(builder: (context, provider, w) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
