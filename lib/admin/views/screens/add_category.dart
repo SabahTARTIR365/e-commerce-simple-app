@@ -12,6 +12,7 @@ class AddNewCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         foregroundColor: Colors.grey,
         backgroundColor:  Colors.white.withOpacity(0.2),

@@ -59,8 +59,8 @@ class MyApp extends StatelessWidget {
 
 
 class AppInitial extends StatelessWidget {
-  const AppInitial({super.key});
-
+  AppInitial({super.key});
+ThemeData appTheme=ThemeData( primarySwatch: Colors.orange, );
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -70,7 +70,7 @@ class AppInitial extends StatelessWidget {
       title: 'E-commerce App',
       theme: Provider.of<AdminProvider>(context).isDarkMode
           ? ThemeData.dark()
-          : ThemeData.light(),
+          : appTheme,
 
 
       home:SplashScreen(),//CustomerHomeScreen(),//
