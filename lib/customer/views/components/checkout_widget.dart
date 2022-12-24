@@ -1,9 +1,11 @@
+import 'package:firbase_app_test/app_router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../../admin/providers/admin_provider.dart';
 import '../../../auth/widgets/custom_button.dart';
+import '../confirm_order_screen.dart';
 
 class CheckoutWidget extends StatelessWidget {
   const CheckoutWidget ({
@@ -82,7 +84,7 @@ class CheckoutWidget extends StatelessWidget {
                       width: 190,
                       child: CustomButton(
                         text: "Check Out",
-                        press: () {},
+                        press: () { AppRouter.appRouter.goToWidgetAndReplace(ConfirmOrderScreen());},
                       ),
                     ),
                   ],
