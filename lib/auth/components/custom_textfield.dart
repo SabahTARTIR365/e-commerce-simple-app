@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return TextFormField(
-      maxLines: null,
+      maxLines: 1,
       enabled: isEnabled,
       keyboardType: textInputType,
       obscureText: isPassword,
